@@ -1,0 +1,8 @@
+@model Tarifas
+<h2>Eliminar Tarifa</h2>
+<p>¿Estás seguro que deseas eliminar esta tarifa?</p>
+<form method="post">
+    <input type="hidden" name="id" value="@Model.IdTarifas" />
+    <button type="submit">Sí, eliminar</button>
+    <a href="/Tarifas">Cancelar</a>
+</form>

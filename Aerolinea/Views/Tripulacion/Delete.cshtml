@@ -1,0 +1,13 @@
+﻿@model Aerolinea.Models.Tripulacion
+
+<h2>¿Eliminar Tripulante?</h2>
+
+<p><strong>Nombre:</strong> @Model.nombre</p>
+<p><strong>Rol:</strong> @Model.rol</p>
+<p><strong>ID de Vuelo:</strong> @Model.id_info</p>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="id_tripulacion" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

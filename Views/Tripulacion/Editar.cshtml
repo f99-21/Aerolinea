@@ -1,0 +1,10 @@
+@model Tripulacion
+<h2>Editar Tripulacion</h2>
+<form method="post">
+    <input type="hidden" name="IdTripulacion" value="@Model.IdTripulacion" />
+    <label>Nombre:</label>
+    <input name="Nombre" value="@Model.Nombre" required />
+    <label>Rol:</label>
+    <input name="Rol" value="@Model.Rol" required />
+    <button type="submit">Guardar</button>
+</form>

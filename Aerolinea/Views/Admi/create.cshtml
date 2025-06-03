@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Panel de Administración";
+}
+
+<style>
+    .custom-panel {
+        background: #c9e9f9; /* fondo azul suave similar */
+        padding: 30px 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .custom-panel a.btn {
+        border-radius: 15px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 15px 20px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        transition: background-color 0.3s ease;
+    }
+    .custom-panel a.btn:hover {
+        filter: brightness(0.9);
+        text-decoration: none;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Bienvenido Administrador</h2>
+        <p class="lead text-muted">Acceda a los módulos de gestión disponibles en el sistema.</p>
+    </div>
+
+    <div class="custom-panel">
+        <div class="row g-3 justify-content-center">
+            <div class="col-md-4">
+                <a class="btn btn-primary w-100" asp-controller="Avion" asp-action="Index">
+                    ✈️ Gestión de Aviones
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-secondary w-100" asp-controller="Vuelo" asp-action="Index">
+                    🛫 Gestión de Vuelos
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-success w-100" asp-controller="Tarifa" asp-action="Index">
+                    💵 Gestión de Tarifas
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a class="btn btn-warning w-100" asp-controller="Tripulacion" asp-action="Index">
+                    👨‍✈️ Gestión de Tripulación
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-dark w-100" asp-controller="Pago" asp-action="Index">
+                    💳 Pagos y Servicios
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-info w-100" asp-controller="VueloInfo" asp-action="Index">
+                    📄 Información de Vuelos
+                </a>
+            </div>
+
+            <div class="col-md-4">
+                <a class="btn btn-outline-primary w-100" asp-controller="Pasajero" asp-action="Index">
+                    🧍 Ver Pasajeros
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-outline-secondary w-100" asp-controller="Reserva" asp-action="Index">
+                    📅 Reservas
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-outline-danger w-100" asp-controller="Reportes" asp-action="Index">
+                    📊 Reportes
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

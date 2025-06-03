@@ -1,0 +1,13 @@
+﻿@model Vuelo
+
+<h2>Detalles del Vuelo</h2>
+
+<table>
+    <tr><th>Número de Vuelo</th><td>@Model.Numero_vuelo</td></tr>
+    <tr><th>Origen</th><td>@Model.Origen</td></tr>
+    <tr><th>Destino</th><td>@Model.Destino</td></tr>
+    <tr><th>Horario</th><td>@Model.Horario.ToString("g")</td></tr>
+    <tr><th>Precio</th><td>@Model.Precio.ToString("C")</td></tr>
+</table>
+
+<a href="@Url.Action("Crear", "Reserva", new { vueloId = Model.id_vuelo })">Reservar Vuelo</a>

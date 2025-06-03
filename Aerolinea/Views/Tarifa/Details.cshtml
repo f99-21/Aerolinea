@@ -1,0 +1,12 @@
+﻿@model Aerolinea.Models.Tarifa
+
+<h2>Detalles de Tarifa</h2>
+
+<div>
+    <p><strong>Tipo:</strong> @Model.Tipo</p>
+    <p><strong>Descripción:</strong> @Model.Descripcion</p>
+    <p><strong>Precio:</strong> $@Model.Precio</p>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.Id_Tarifas" class="btn btn-warning">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Volver</a>

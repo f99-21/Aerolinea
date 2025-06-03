@@ -1,0 +1,37 @@
+﻿@model List<Aerolinea.Models.PasajeroVueloViewModel>
+
+<h2>Lista de Vuelos</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Documento</th>
+            <th>Vuelo</th>
+            <th>Origen</th>
+            <th>Destino</th>
+            <th>Horario</th>
+            <th>Tarifa</th>
+            <th>Descripción</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Apellido</td>
+                <td>@item.Documento</td>
+                <td>@item.NumeroVuelo</td>
+                <td>@item.Origen</td>
+                <td>@item.Destino</td>
+                <td>@item.Horario.ToString("g")</td>
+                <td>@item.TipoTarifa</td>
+                <td>@item.DescripcionTarifa</td>
+                <td>$@item.Total</td>
+            </tr>
+        }
+    </tbody>
+</table>

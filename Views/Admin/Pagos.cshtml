@@ -1,0 +1,17 @@
+@model List<PPagos>
+<h2>Pagos Realizados</h2>
+<table>
+    <thead>
+        <tr><th>Detalle</th><th>Total</th><th>Método</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var pago in Model)
+    {
+        <tr>
+            <td>@pago.Detalle</td>
+            <td>$@pago.Total</td>
+            <td>@pago.MetodoPago</td>
+        </tr>
+    }
+    </tbody>
+</table>

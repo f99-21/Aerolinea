@@ -1,0 +1,14 @@
+﻿@model Aerolinea.Models.VueloInfo
+
+<h2>¿Eliminar Información de Vuelo?</h2>
+
+<p><strong>Número de Vuelo:</strong> @Model.numeroVuelo</p>
+<p><strong>ID del Avión:</strong> @Model.id_avion</p>
+<p><strong>Espacios Ocupados:</strong> @Model.espacios_ocupados</p>
+<p><strong>Espacios Vacíos:</strong> @Model.espacios_vacios</p>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="id_info" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

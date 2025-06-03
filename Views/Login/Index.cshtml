@@ -1,0 +1,14 @@
+<h2>Iniciar Sesión</h2>
+<form method="post" asp-action="Login">
+    <label>Correo:</label>
+    <input type="email" name="correo" required />
+    <label>Rol:</label>
+    <select name="rol">
+        <option value="pasajero">Pasajero</option>
+        <option value="admi">Administrador</option>
+    </select>
+    <button type="submit">Ingresar</button>
+</form>
+@if(ViewBag.Error != null) {
+    <p style="color:red;">@ViewBag.Error</p>
+}

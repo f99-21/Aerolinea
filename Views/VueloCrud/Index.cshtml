@@ -1,0 +1,25 @@
+@model IEnumerable<Vuelo>
+<h2>Lista de Vuelos</h2>
+<a href="/VueloCrud/Crear">Crear nuevo</a>
+<table>
+    <thead>
+        <tr><th>Número</th><th>Origen</th><th>Destino</th><th>Escala</th><th>Precio</th><th>Horario</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var v in Model)
+    {
+        <tr>
+            <td>@v.NumeroVuelo</td>
+            <td>@v.Origen</td>
+            <td>@v.Destino</td>
+            <td>@v.Escala</td>
+            <td>$@v.Precio</td>
+            <td>@v.Horario</td>
+            <td>
+                <a href="/VueloCrud/Editar/@v.IdVuelo">Editar</a> |
+                <a href="/VueloCrud/Eliminar/@v.IdVuelo">Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

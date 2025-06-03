@@ -1,0 +1,24 @@
+@model IEnumerable<Reserva>
+<h2>Listado de Reservas</h2>
+<a href="/Reserva/Crear">Crear nuevo</a>
+<table>
+    <thead>
+        <tr><th>IdReserva</th><th>IdPago</th><th>FechaHora</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.IdReserva</td>
+<td>@item.IdPago</td>
+<td>@item.FechaHora</td>
+            
+                <td>
+                    <a href="/Reserva/Editar/@item.IdReserva">Editar</a> |
+                    <a href="/Reserva/Eliminar/@item.IdReserva">Eliminar</a>
+                </td>
+    
+        </tr>
+    }
+    </tbody>
+</table>

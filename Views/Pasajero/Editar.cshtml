@@ -1,0 +1,8 @@
+@model Pasajero
+<h2>Editar Pasajero</h2>
+<form method="post">
+    <input type="hidden" name="IdPasajero" value="@Model.IdPasajero" />
+    <label>Documento:</label>
+    <input name="Documento" value="@Model.Documento" required />
+    <button type="submit">Guardar</button>
+</form>

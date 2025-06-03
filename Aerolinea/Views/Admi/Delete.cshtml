@@ -1,0 +1,41 @@
+﻿@model Aerolinea.Models.Admi
+
+<style>
+    .detail-card {
+        background: #c9e9f9; /* azul suave */
+        border-radius: 20px;
+        padding: 30px 25px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        max-width: 500px;
+        margin: 40px auto;
+    }
+
+        .detail-card p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+    .btn-custom {
+        border-radius: 15px;
+        padding: 12px 30px;
+        font-weight: 600;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        transition: filter 0.3s ease;
+    }
+
+        .btn-custom:hover {
+            filter: brightness(0.9);
+            text-decoration: none;
+        }
+</style>
+
+<div class="detail-card text-center">
+    <h2 class="mb-4 fw-bold">Detalles del Administrador</h2>
+    <p><strong>ID:</strong> @Model.id_admi</p>
+    <p><strong>Correo:</strong> @Model.Login?.correo</p>
+    <p><strong>Contraseña:</strong> ********</p> <!-- Mejor ocultar contraseña -->
+
+    <a class="btn btn-primary btn-custom mt-3" asp-action="Index">
+        <i class="fas fa-arrow-left me-2"></i> Volver
+    </a>
+</div>

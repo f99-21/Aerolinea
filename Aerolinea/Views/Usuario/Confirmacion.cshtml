@@ -1,0 +1,111 @@
+﻿@model Aerolinea.Models.Reserva
+
+@{
+    ViewData["Title"] = "Confirmación de Reserva";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h2 class="mb-0">Reserva Confirmada</h2>
+        </div>
+        <div class="card-body">
+
+            @if (Model != null && Model.Pago != null)
+            {
+                <!-- Detalles de la Reserva -->
+                <div class="accordion mb-3" id="reservaAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingReserva">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReserva" aria-expanded="true" aria-controls="collapseReserva">
+                                Detalles de la Reserva
+                            </button>
+                        </h2>
+                        <div id="collapseReserva" class="accordion-collapse collapse show" aria-labelledby="headingReserva">
+                            <div class="accordion-body">
+                          
+                                <p><strong>Fecha y hora:</strong> @Model.fecha_hora.ToString("g")</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detalles del Pago -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingPago">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePago" aria-expanded="false" aria-controls="collapsePago">
+                                Detalles del Pago
+                            </button>
+                        </h2>
+                        <div id="collapsePago" class="accordion-collapse collapse" aria-labelledby="headingPago">
+                            <div class="accordion-body">
+                                <p><strong>ID Pago:</strong> @Model.Pago.id_pago</p>
+                                <p><strong>Total pagado:</strong> $@Model.Pago.total</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detalles del Vuelo -->
+                    @if (Model.Pago.Vuelo != null)
+                    {
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingVuelo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVuelo" aria-expanded="false" aria-controls="collapseVuelo">
+                                    Detalles del Vuelo
+                                </button>
+                            </h2>
+                            <div id="collapseVuelo" class="accordion-collapse collapse" aria-labelledby="headingVuelo">
+                                <div class="accordion-body">
+                                    <p><strong>Número de vuelo:</strong> @Model.Pago.Vuelo.Numero_vuelo</p>
+                                    <p><strong>Origen:</strong> @Model.Pago.Vuelo.Origen</p>
+                                    <p><strong>Destino:</strong> @Model.Pago.Vuelo.Destino</p>
+                                    <p><strong>Horario:</strong> @Model.Pago.Vuelo.Horario.ToString("g")</p>
+                                    <p><strong>Precio:</strong> $@Model.Pago.Vuelo.Precio</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Detalles de la Tarifa -->
+                    @if (Model.Pago.Tarifa != null)
+                    {
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTarifa">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTarifa" aria-expanded="false" aria-controls="collapseTarifa">
+                                    Detalles de la Tarifa
+                                </button>
+                            </h2>
+                            <div id="collapseTarifa" class="accordion-collapse collapse" aria-labelledby="headingTarifa">
+                                <div class="accordion-body">
+                                    <p><strong>Tipo:</strong> @Model.Pago.Tarifa.Tipo</p>
+                                    <p><strong>Descripción:</strong> @Model.Pago.Tarifa.Descripcion</p>
+                                    <p><strong>Precio tarifa:</strong> $@Model.Pago.Tarifa.Precio</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-warning" role="alert">
+                    No se encontraron detalles para esta reserva.
+                </div>
+            }
+
+            <!-- Botones -->
+            <div class="text-center mt-4">
+                <a href="@Url.Action("BuscarVuelo", "Usuario")" class="btn btn-primary me-2">
+                    Buscar más vuelos
+                </a>
+                <form asp-action="ComprarBoleto" method="post" class="d-inline">
+                    <input type="hidden" name="id_reserva" value="@Model.id_reserva" />
+                    <button type="submit" class="btn btn-success">
+                        Descargar PDF
+                    </button>
+                </form>
+            </div>
+
+           
+        </div>
+    </div>
+</div>

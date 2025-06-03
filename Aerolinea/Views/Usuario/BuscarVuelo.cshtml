@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Listado de Vuelos";
+}
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Plataforma de Vuelos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-sky-100 to-blue-200 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-white transition-all duration-500">
+
+    <!-- Botón de modo oscuro/claro -->
+    <div class="fixed top-5 right-5 z-50">
+        <button id="toggleMode" class="bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 px-4 py-2 rounded-full shadow-md transition hover:scale-105">
+            Cambiar Modo
+        </button>
+    </div>
+
+    <div class="container mx-auto px-4 py-12">
+        <h2 class="text-4xl font-bold text-center mb-10">✈️ Plataforma de Vuelos</h2>
+
+        <!-- Buscador -->
+        <div class="flex justify-center mb-10">
+            <input id="buscador" type="text" placeholder="Buscar por origen, destino o número de vuelo..."
+                   class="w-full max-w-md px-5 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white/40 dark:bg-gray-700/30 backdrop-blur-lg shadow-xl placeholder-gray-600 dark:placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300" />
+        </div>
+
+        <!-- Tarjetas de vuelos -->
+        <div id="contenedorVuelos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            @foreach (var vuelo in Model)
+            {
+                <div class="bg-white/30 dark:bg-gray-700/20 backdrop-blur-xl p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-white/50 dark:border-gray-600">
+                    <h3 class="text-xl font-semibold mb-2">✈️ Vuelo: <span>@vuelo.Numero_vuelo</span></h3>
+                    <p><strong>Origen:</strong> @vuelo.Origen</p>
+                    <p><strong>Destino:</strong> @vuelo.Destino</p>
+                    <p><strong>Horario:</strong> @vuelo.Horario.ToString("g")</p>
+                    <p><strong>Precio:</strong> $@vuelo.Precio</p>
+                    <a asp-action="Seleccionar" asp-route-id="@vuelo.id_vuelo"
+                       class="block mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-xl text-center transition">
+                        Seleccionar Vuelo
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white/40 dark:bg-gray-900/60 text-center py-6 mt-16">
+        <p class="text-sm text-gray-700 dark:text-gray-300">© 2025 Plataforma de Vuelos | Todos los derechos reservados</p>
+    </footer>
+
+    <!-- Buscador Script -->
+    <script>
+        document.getElementById('buscador').addEventListener('input', function () {
+            const valor = this.value.toLowerCase();
+            const tarjetas = document.querySelectorAll('#contenedorVuelos > div');
+
+            tarjetas.forEach(tarjeta => {
+                tarjeta.style.display = tarjeta.textContent.toLowerCase().includes(valor) ? '' : 'none';
+            });
+        });
+
+        // Cambiar entre modo claro y oscuro manualmente
+        const toggleButton = document.getElementById('toggleMode');
+        toggleButton.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+    </script>
+</body>
+</html>

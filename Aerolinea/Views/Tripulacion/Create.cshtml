@@ -1,0 +1,26 @@
+﻿@model Aerolinea.Models.Tripulacion
+
+<h2>Agregar Tripulante</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="nombre"></label>
+        <input asp-for="nombre" class="form-control" />
+        <span asp-validation-for="nombre" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="rol"></label>
+        <input asp-for="rol" class="form-control" />
+        <span asp-validation-for="rol" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="id_info">ID de Vuelo</label>
+        <select asp-for="id_info" asp-items="ViewBag.id_info" class="form-control"></select>
+        <span asp-validation-for="id_info" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

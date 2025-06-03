@@ -1,0 +1,11 @@
+﻿@model Aerolinea.Models.Pasajero
+
+<h2>Detalles del Pasajero</h2>
+
+<div>
+    <p><strong>ID:</strong> @Model.id_pasajero</p>
+    <p><strong>Documento:</strong> @Model.documento</p>
+    <p><strong>Correo:</strong> @Model.Login?.correo</p>
+</div>
+
+<a asp-action="Index" class="btn btn-primary">Volver</a>

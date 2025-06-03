@@ -1,0 +1,8 @@
+@model PPagos
+<h2>Eliminar PPagos</h2>
+<p>¿Seguro que deseas eliminar este registro?</p>
+<form method="post">
+    <input type="hidden" name="id" value="@Model.IdPago" />
+    <button type="submit">Eliminar</button>
+    <a href="/PPagos">Cancelar</a>
+</form>

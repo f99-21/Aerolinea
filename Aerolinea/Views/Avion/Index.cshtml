@@ -1,0 +1,88 @@
+﻿@model Aerolinea.Models.Avion
+
+<style>
+    .form-card {
+        background: #c9e9f9; /* azul pastel */
+        border-radius: 20px;
+        padding: 30px 25px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        max-width: 500px;
+        margin: 40px auto;
+    }
+
+        .form-card h2 {
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+    .form-label {
+        font-weight: 600;
+        font-size: 1.05rem;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        border: 1.5px solid #ced4da;
+        padding: 10px 12px;
+        font-size: 1rem;
+        box-shadow: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: #198754;
+            box-shadow: 0 0 5px rgba(25, 135, 84, 0.5);
+            outline: none;
+        }
+
+    .btn-custom {
+        border-radius: 15px;
+        font-weight: 600;
+        padding: 12px 30px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        transition: filter 0.3s ease;
+        min-width: 120px;
+        font-size: 1rem;
+    }
+
+        .btn-custom:hover {
+            filter: brightness(0.9);
+            text-decoration: none;
+        }
+
+    .btn-group {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 25px;
+    }
+
+    .text-danger {
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+</style>
+
+<div class="form-card">
+    <h2>Agregar Avión</h2>
+
+    <form asp-action="Create" method="post" novalidate>
+        <div class="mb-3">
+            <label asp-for="modelo" class="form-label"></label>
+            <input asp-for="modelo" class="form-control" />
+            <span asp-validation-for="modelo" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="capacidad" class="form-label"></label>
+            <input asp-for="capacidad" class="form-control" type="number" min="1" />
+            <span asp-validation-for="capacidad" class="text-danger"></span>
+        </div>
+
+        <div class="btn-group">
+            <button type="submit" class="btn btn-success btn-custom">Guardar</button>
+            <a asp-action="Index" class="btn btn-secondary btn-custom">Cancelar</a>
+        </div>
+    </form>
+</div>

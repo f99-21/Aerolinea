@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Aerolinea.Models.Tripulacion>
+
+<h2>Tripulación</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Agregar Nuevo</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Rol</th>
+            <th>ID Vuelo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.nombre</td>
+                <td>@item.rol</td>
+                <td>@item.id_info</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.id_tripulacion" class="btn btn-info btn-sm">Ver</a>
+                    <a asp-action="Edit" asp-route-id="@item.id_tripulacion" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.id_tripulacion" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

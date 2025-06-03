@@ -1,0 +1,10 @@
+﻿@model Aerolinea.Models.Tripulacion
+
+<h2>Detalles del Tripulante</h2>
+
+<p><strong>Nombre:</strong> @Model.nombre</p>
+<p><strong>Rol:</strong> @Model.rol</p>
+<p><strong>ID de Vuelo:</strong> @Model.id_info</p>
+
+<a asp-action="Edit" asp-route-id="@Model.id_tripulacion" class="btn btn-warning">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Volver</a>

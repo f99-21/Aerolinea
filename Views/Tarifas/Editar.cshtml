@@ -1,0 +1,12 @@
+@model Tarifas
+<h2>Editar Tarifa</h2>
+<form method="post">
+    <input type="hidden" name="IdTarifas" value="@Model.IdTarifas" />
+    <label>Tipo:</label>
+    <input type="text" name="Tipo" value="@Model.Tipo" required />
+    <label>Descripción:</label>
+    <input type="text" name="Descripcion" value="@Model.Descripcion" required />
+    <label>Precio:</label>
+    <input type="number" step="0.01" name="Precio" value="@Model.Precio" required />
+    <button type="submit">Guardar</button>
+</form>

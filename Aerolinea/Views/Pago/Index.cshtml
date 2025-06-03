@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Aerolinea.Models.Pago>
+
+<h2>Listado de Pagos</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Registrar nuevo pago</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Detalle</th>
+            <th>Total</th>
+            <th>Método</th>
+            <th>Administrador</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.detalle</td>
+                <td>$@item.total</td>
+                <td>@item.metodo_pago</td>
+                <td>@item.Admi?.id_admi</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.id_pago" class="btn btn-info btn-sm">Ver</a>
+                    <a asp-action="Edit" asp-route-id="@item.id_pago" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.id_pago" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,22 @@
+﻿@model List<Vuelo>
+
+<h2>Vuelos disponibles</h2>
+
+<table>
+    <thead>
+        <tr><th>Número</th><th>Origen</th><th>Destino</th><th>Horario</th><th>Precio</th><th>Acción</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var vuelo in Model)
+        {
+            <tr>
+                <td>@vuelo.Numero_vuelo</td>
+                <td>@vuelo.Origen</td>
+                <td>@vuelo.Destino</td>
+                <td>@vuelo.Horario.ToString("g")</td>
+                <td>@vuelo.Precio.ToString("C")</td>
+                <td><a href="@Url.Action("Detalle", "Vuelo", new { id = vuelo.id_vuelo })">Detalles</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

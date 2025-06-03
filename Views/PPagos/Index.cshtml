@@ -1,0 +1,26 @@
+@model IEnumerable<PPagos>
+<h2>Listado de PPagoss</h2>
+<a href="/PPagos/Crear">Crear nuevo</a>
+<table>
+    <thead>
+        <tr><th>IdPago</th><th>Detalle</th><th>Total</th><th>IdAdmi</th><th>MetodoPago</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.IdPago</td>
+<td>@item.Detalle</td>
+<td>@item.Total</td>
+<td>@item.IdAdmi</td>
+<td>@item.MetodoPago</td>
+            
+                <td>
+                    <a href="/PPagos/Editar/@item.IdPago">Editar</a> |
+                    <a href="/PPagos/Eliminar/@item.IdPago">Eliminar</a>
+                </td>
+    
+        </tr>
+    }
+    </tbody>
+</table>

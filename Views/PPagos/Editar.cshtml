@@ -1,0 +1,12 @@
+@model PPagos
+<h2>Editar PPagos</h2>
+<form method="post">
+    <input type="hidden" name="IdPago" value="@Model.IdPago" />
+    <label>Detalle:</label>
+    <input name="Detalle" value="@Model.Detalle" required />
+    <label>Total:</label>
+    <input name="Total" value="@Model.Total" required />
+    <label>MetodoPago:</label>
+    <input name="MetodoPago" value="@Model.MetodoPago" required />
+    <button type="submit">Guardar</button>
+</form>

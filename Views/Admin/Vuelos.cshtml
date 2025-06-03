@@ -1,0 +1,18 @@
+@model List<Vuelo>
+<h2>Vuelos Administrativos</h2>
+<table>
+    <thead>
+        <tr><th>Vuelo</th><th>Origen</th><th>Destino</th><th>Fecha</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var v in Model)
+    {
+        <tr>
+            <td>@v.NumeroVuelo</td>
+            <td>@v.Origen</td>
+            <td>@v.Destino</td>
+            <td>@v.Horario.ToString("g")</td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,8 @@
+@model Pasajero
+<h2>Eliminar Pasajero</h2>
+<p>¿Seguro que deseas eliminar este registro?</p>
+<form method="post">
+    <input type="hidden" name="id" value="@Model.IdPasajero" />
+    <button type="submit">Eliminar</button>
+    <a href="/Pasajero">Cancelar</a>
+</form>

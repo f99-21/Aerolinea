@@ -1,0 +1,61 @@
+﻿@model Aerolinea.Models.Pago
+
+<style>
+    .detail-card {
+        background: #c9e9f9; /* azul pastel */
+        border-radius: 20px;
+        padding: 30px 25px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        max-width: 480px;
+        margin: 50px auto;
+        text-align: center;
+    }
+
+        .detail-card h2 {
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .detail-card p {
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+
+    .btn-custom {
+        border-radius: 15px;
+        font-weight: 600;
+        padding: 12px 30px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        transition: filter 0.3s ease;
+        min-width: 120px;
+        margin: 10px 8px;
+        font-size: 1rem;
+    }
+
+        .btn-custom:hover {
+            filter: brightness(0.9);
+            text-decoration: none;
+        }
+
+    .btn-group {
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+</style>
+
+<div class="detail-card">
+    <h2>Detalles del Pago</h2>
+
+    <p><strong>Detalle:</strong> @Model.detalle</p>
+    <p><strong>Total:</strong> $@Model.total</p>
+    <p><strong>Método de pago:</strong> @Model.metodo_pago</p>
+    <p><strong>Administrador:</strong> @Model.Admi?.id_admi</p>
+
+    <div class="btn-group">
+        <a asp-action="Edit" asp-route-id="@Model.id_pago" class="btn btn-warning btn-custom">Editar</a>
+        <a asp-action="Index" class="btn btn-secondary btn-custom">Volver</a>
+    </div>
+</div>

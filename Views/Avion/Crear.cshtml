@@ -1,0 +1,9 @@
+@model Avion
+<h2>Crear Avion</h2>
+<form method="post">
+    <label>Modelo:</label>
+    <input name="Modelo" value="@Model.Modelo" required />
+    <label>Capacidad:</label>
+    <input name="Capacidad" value="@Model.Capacidad" required />
+    <button type="submit">Guardar</button>
+</form>

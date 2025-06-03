@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Panel de Administración";
+}
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Modo oscuro: Configuración inicial -->
+<script>
+    // Configura modo oscuro automáticamente si ya está en localStorage o el sistema está en modo oscuro
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+</script>
+
+<!-- Toggle para el modo oscuro -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('dark-toggle');
+
+        toggle.addEventListener('click', () => {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+
+            // Guardar preferencia
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+    });
+</script>
+
+<div class="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 px-6 transition-all">
+    <div class="max-w-6xl mx-auto bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-3xl shadow-xl p-10">
+
+        <!-- Encabezado -->
+        <div class="flex justify-between items-center mb-10">
+            <h2 class="text-4xl font-bold text-blue-800 dark:text-white">🚀 Panel de Administración</h2>
+            <button id="dark-toggle" class="bg-gray-300 dark:bg-gray-700 text-sm px-4 py-2 rounded-full hover:bg-gray-400 dark:hover:bg-gray-600 transition">
+                🌙/☀️ Cambiar Modo
+            </button>
+        </div>
+
+        <!-- Opciones del panel -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+            <a asp-controller="Vuelo" asp-action="Index" class="block bg-blue-600 text-white rounded-2xl shadow-lg hover:scale-105 transform transition p-6 text-center">
+                <div class="text-4xl mb-2">✈️</div>
+                <div class="text-xl font-semibold">Gestión de Vuelos</div>
+            </a>
+
+            <a asp-controller="Tarifa" asp-action="Index" class="block bg-green-600 text-white rounded-2xl shadow-lg hover:scale-105 transform transition p-6 text-center">
+                <div class="text-4xl mb-2">💰</div>
+                <div class="text-xl font-semibold">Gestión de Tarifas</div>
+            </a>
+
+            <a asp-controller="VueloInfo" asp-action="Index" class="block bg-cyan-600 text-white rounded-2xl shadow-lg hover:scale-105 transform transition p-6 text-center">
+                <div class="text-4xl mb-2">📋</div>
+                <div class="text-xl font-semibold">Información de Vuelos</div>
+            </a>
+
+            <a asp-controller="Tripulacion" asp-action="Index" class="block bg-yellow-500 text-white rounded-2xl shadow-lg hover:scale-105 transform transition p-6 text-center">
+                <div class="text-4xl mb-2">🧑‍✈️</div>
+                <div class="text-xl font-semibold">Tripulación</div>
+            </a>
+
+            <a asp-controller="Pasajero" asp-action="Index" class="block bg-gray-800 text-white rounded-2xl shadow-lg hover:scale-105 transform transition p-6 text-center">
+                <div class="text-4xl mb-2">🧍‍♂️</div>
+                <div class="text-xl font-semibold">Pasajeros</div>
+            </a>
+
+            <a asp-controller="Pago" asp-action="Index" class="block bg-purple-600 text-white rounded-2xl shadow-lg hover:scale-105 transform transition p-6 text-center">
+                <div class="text-4xl mb-2">💳</div>
+                <div class="text-xl font-semibold">Pagos</div>
+            </a>
+
+            <a asp-controller="referencia" asp-action="Index" class="block bg-white dark:bg-gray-900 border-2 border-blue-500 text-blue-600 dark:text-blue-400 rounded-2xl shadow hover:scale-105 transform transition p-6 text-center">
+                <div class="text-4xl mb-2">📑</div>
+                <div class="text-xl font-semibold">Reservas</div>
+            </a>
+
+            <a asp-controller="Ocupacion" asp-action="Index" class="block bg-white dark:bg-gray-900 border-2 border-cyan-500 text-cyan-600 dark:text-cyan-400 rounded-2xl shadow hover:scale-105 transform transition p-6 text-center">
+                <div class="text-4xl mb-2">📈</div>
+                <div class="text-xl font-semibold">Ocupación de Vuelos</div>
+            </a>
+
+            <a asp-controller="pasajerosController1" asp-action="DetallesVuelos" class="block bg-green-700 text-white rounded-2xl shadow-lg hover:scale-105 transform transition p-6 text-center">
+                <div class="text-4xl mb-2">🔎</div>
+                <div class="text-xl font-semibold">Consultar Vuelos</div>
+            </a>
+
+        </div>
+    </div>
+</div>

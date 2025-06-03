@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Aerolinea.Models.estado>
+
+<style>
+    .table-container {
+        background: #c9e9f9; /* fondo azul pastel */
+        border-radius: 20px;
+        padding: 25px 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin-top: 30px;
+        overflow-x: auto;
+    }
+
+    table.table {
+        border-collapse: separate;
+        border-spacing: 0 0.75rem;
+        width: 100%;
+    }
+
+        table.table thead th {
+            border: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+            background-color: #0d6efd; /* azul bootstrap */
+            border-radius: 12px;
+            padding: 12px 15px;
+        }
+
+        table.table tbody tr {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+            table.table tbody tr td {
+                vertical-align: middle;
+                border: none;
+                padding: 15px 20px;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+
+    .bg-danger {
+        background-color: #dc3545 !important;
+        border-radius: 10px;
+    }
+
+    .bg-success {
+        background-color: #198754 !important;
+        border-radius: 10px;
+    }
+</style>
+
+<h2 class="text-center fw-bold mt-4">Ocupación de Vuelos</h2>
+
+<div class="container table-container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th># Vuelo</th>
+                <th>Modelo Avión</th>
+                <th>Capacidad</th>
+                <th>Origen</th>
+                <th>Destino</th>
+                <th>Horario</th>
+                <th>Ocupados</th>
+                <th>Disponibles</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.numero_vuelo</td>
+                    <td>@item.modelo</td>
+                    <td>@item.capacidad</td>
+                    <td>@item.origen</td>
+                    <td>@item.destino</td>
+                    <td>@item.horario.ToString("g")</td>
+                    <td class="bg-danger text-white fw-bold">@item.espacios_ocupados</td>
+                    <td class="bg-success text-white fw-bold">@item.espacios_vacios</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,58 @@
+﻿@model Aerolinea.Models.Reserva
+
+@{
+    ViewData["Title"] = "Confirmación de Reserva";
+}
+
+<h2>¡Reserva Confirmada!</h2>
+
+@if (Model != null && Model.Pago != null)
+{
+    <div>
+        <h4>Detalles de la Reserva</h4>
+        <p><strong>ID Reserva:</strong> @Model.id_reserva</p>
+        <p><strong>Fecha y hora:</strong> @Model.fecha_hora.ToString("g")</p>
+    </div>
+
+    <div>
+        <h4>Detalles del Pago</h4>
+        <p><strong>ID Pago:</strong> @Model.Pago.id_pago</p>
+        <p><strong>Total pagado:</strong> $@Model.Pago.total</p>
+    </div>
+
+    @if (Model.Pago.Vuelo != null)
+    {
+        <div>
+            <h4>Detalles del Vuelo</h4>
+            <p><strong>Número de vuelo:</strong> @Model.Pago.Vuelo.Numero_vuelo</p>
+            <p><strong>Origen:</strong> @Model.Pago.Vuelo.Origen</p>
+            <p><strong>Destino:</strong> @Model.Pago.Vuelo.Destino</p>
+            <p><strong>Horario:</strong> @Model.Pago.Vuelo.Horario.ToString("g")</p>
+            <p><strong>Precio:</strong> $@Model.Pago.Vuelo.Precio</p>
+        </div>
+    }
+
+    @if (Model.Pago.Tarifa != null)
+    {
+        <div>
+            <h4>Detalles de la Tarifa</h4>
+            <p><strong>Tipo:</strong> @Model.Pago.Tarifa.Tipo</p>
+            <p><strong>Descripción:</strong> @Model.Pago.Tarifa.Descripcion</p>
+            <p><strong>Precio tarifa:</strong> $@Model.Pago.Tarifa.Precio</p>
+        </div>
+    }
+}
+else
+{
+    <p>No se encontraron detalles para esta reserva.</p>
+}
+
+<a href="@Url.Action("BuscarVuelo", "Usuario")" class="btn btn-primary mt-3">Buscar más vuelos</a>
+
+<form asp-action="ComprarBoleto" method="post" class="d-inline">
+    <input type="hidden" name="id_reserva" value="@Model.id_reserva" />
+    <button type="submit" class="btn btn-success">
+        Descargar PDF
+    </button>
+</form>
+

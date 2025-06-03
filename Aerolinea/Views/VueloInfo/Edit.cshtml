@@ -1,0 +1,34 @@
+﻿@model Aerolinea.Models.VueloInfo
+
+<h2>Editar Información de Vuelo</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="id_info" />
+
+    <div class="form-group">
+        <label asp-for="numeroVuelo"></label>
+        <input asp-for="numeroVuelo" class="form-control" />
+        <span asp-validation-for="numeroVuelo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="id_avion"></label>
+        <input asp-for="id_avion" class="form-control" />
+        <span asp-validation-for="id_avion" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="espacios_ocupados"></label>
+        <input asp-for="espacios_ocupados" class="form-control" />
+        <span asp-validation-for="espacios_ocupados" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="espacios_vacios"></label>
+        <input asp-for="espacios_vacios" class="form-control" />
+        <span asp-validation-for="espacios_vacios" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Actualizar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

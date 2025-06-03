@@ -1,0 +1,8 @@
+@model Tripulacion
+<h2>Eliminar Tripulacion</h2>
+<p>¿Seguro que deseas eliminar este registro?</p>
+<form method="post">
+    <input type="hidden" name="id" value="@Model.IdTripulacion" />
+    <button type="submit">Eliminar</button>
+    <a href="/Tripulacion">Cancelar</a>
+</form>

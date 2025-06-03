@@ -1,0 +1,8 @@
+@model Vuelo
+<h2>Eliminar Vuelo</h2>
+<p>¿Estás seguro que deseas eliminar este vuelo?</p>
+<form method="post">
+    <input type="hidden" name="id" value="@Model.IdVuelo" />
+    <button type="submit">Sí, eliminar</button>
+    <a href="/VueloCrud">Cancelar</a>
+</form>

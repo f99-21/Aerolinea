@@ -1,0 +1,11 @@
+@model PPagos
+<h2>Crear PPagos</h2>
+<form method="post">
+    <label>Detalle:</label>
+    <input name="Detalle" value="@Model.Detalle" required />
+    <label>Total:</label>
+    <input name="Total" value="@Model.Total" required />
+    <label>MetodoPago:</label>
+    <input name="MetodoPago" value="@Model.MetodoPago" required />
+    <button type="submit">Guardar</button>
+</form>

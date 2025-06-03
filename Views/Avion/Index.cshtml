@@ -1,0 +1,24 @@
+@model IEnumerable<Avion>
+<h2>Listado de Avions</h2>
+<a href="/Avion/Crear">Crear nuevo</a>
+<table>
+    <thead>
+        <tr><th>IdAvion</th><th>Modelo</th><th>Capacidad</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.IdAvion</td>
+<td>@item.Modelo</td>
+<td>@item.Capacidad</td>
+            
+                <td>
+                    <a href="/Avion/Editar/@item.IdAvion">Editar</a> |
+                    <a href="/Avion/Eliminar/@item.IdAvion">Eliminar</a>
+                </td>
+    
+        </tr>
+    }
+    </tbody>
+</table>

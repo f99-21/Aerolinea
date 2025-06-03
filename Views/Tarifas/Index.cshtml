@@ -1,0 +1,22 @@
+@model IEnumerable<Tarifas>
+<h2>Tarifas Disponibles</h2>
+<a href="/Tarifas/Crear">Crear nueva</a>
+<table>
+    <thead>
+        <tr><th>Tipo</th><th>Descripción</th><th>Precio</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Tipo</td>
+            <td>@item.Descripcion</td>
+            <td>$@item.Precio</td>
+            <td>
+                <a href="/Tarifas/Editar/@item.IdTarifas">Editar</a> |
+                <a href="/Tarifas/Eliminar/@item.IdTarifas">Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

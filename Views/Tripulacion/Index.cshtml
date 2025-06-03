@@ -1,0 +1,25 @@
+@model IEnumerable<Tripulacion>
+<h2>Listado de Tripulacions</h2>
+<a href="/Tripulacion/Crear">Crear nuevo</a>
+<table>
+    <thead>
+        <tr><th>IdTripulacion</th><th>IdInfo</th><th>Nombre</th><th>Rol</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.IdTripulacion</td>
+<td>@item.IdInfo</td>
+<td>@item.Nombre</td>
+<td>@item.Rol</td>
+            
+                <td>
+                    <a href="/Tripulacion/Editar/@item.IdTripulacion">Editar</a> |
+                    <a href="/Tripulacion/Eliminar/@item.IdTripulacion">Eliminar</a>
+                </td>
+    
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,8 @@
+@model Reserva
+<h2>Editar Reserva</h2>
+<form method="post">
+    <input type="hidden" name="IdReserva" value="@Model.IdReserva" />
+    <label>FechaHora:</label>
+    <input name="FechaHora" value="@Model.FechaHora" required />
+    <button type="submit">Guardar</button>
+</form>

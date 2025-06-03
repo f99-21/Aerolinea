@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Aerolinea.Models.referenicia>
+
+<h2>Listado de Reservas</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID Reserva</th>
+            <th>Fecha</th>
+            <th>ID Pago</th>
+            <th>Total</th>
+            <th>Documento</th>
+            <th>Vuelo</th>
+            <th>Origen</th>
+            <th>Destino</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id_reserva</td>
+                <td>@item.fecha_hora.ToString("g")</td>
+                <td>@item.id_pago</td>
+                <td>$@item.total</td>
+                <td>@item.documento</td>
+                <td>@item.numero_vuelo</td>
+                <td>@item.origen</td>
+                <td>@item.destino</td>
+            </tr>
+        }
+    </tbody>
+</table>

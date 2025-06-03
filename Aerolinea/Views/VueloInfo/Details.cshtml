@@ -1,0 +1,11 @@
+﻿@model Aerolinea.Models.VueloInfo
+
+<h2>Detalles del Vuelo</h2>
+
+<p><strong>Número de Vuelo:</strong> @Model.numeroVuelo</p>
+<p><strong>ID del Avión:</strong> @Model.id_avion</p>
+<p><strong>Espacios Ocupados:</strong> @Model.espacios_ocupados</p>
+<p><strong>Espacios Vacíos:</strong> @Model.espacios_vacios</p>
+
+<a asp-action="Edit" asp-route-id="@Model.id_info" class="btn btn-warning">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Volver</a>

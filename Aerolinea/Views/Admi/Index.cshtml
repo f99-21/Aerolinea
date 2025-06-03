@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Aerolinea.Models.Admi>
+
+@{
+    ViewData["Title"] = "Administradores";
+}
+
+<style>
+    .table-container {
+        background: #c9e9f9;
+        border-radius: 20px;
+        padding: 25px 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin-top: 30px;
+    }
+
+    table.table {
+        border-collapse: separate;
+        border-spacing: 0 0.75rem;
+    }
+
+        table.table thead th {
+            border: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        table.table tbody tr {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+            table.table tbody tr td {
+                vertical-align: middle;
+                border: none;
+                padding: 15px 20px;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+
+    .btn-custom {
+        border-radius: 15px;
+        padding: 6px 14px;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+        transition: filter 0.3s ease;
+        font-size: 0.9rem;
+    }
+
+        .btn-custom:hover {
+            filter: brightness(0.9);
+            text-decoration: none;
+        }
+
+    .btn-primary-custom {
+        margin-bottom: 15px;
+        border-radius: 20px;
+        padding: 10px 25px;
+        font-weight: 700;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        font-size: 1.1rem;
+    }
+</style>
+
+<h2 class="text-center fw-bold mt-4">Administradores</h2>
+
+<div class="container table-container">
+    <a href="@Url.Action("Create", "Admi")" class="btn btn-primary btn-primary-custom">Crear Nuevo Administrador</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Login?.nombre</td>
+                    <td>@item.Login?.correo</td>
+                    <td class="text-center">
+                        <a href="@Url.Action("Details", "Admi", new { id = item.id_admi })" class="btn btn-info btn-custom me-1">Ver</a>
+                        <a href="@Url.Action("Edit", "Admi", new { id = item.id_admi })" class="btn btn-warning btn-custom me-1">Editar</a>
+                        <a href="@Url.Action("Delete", "Admi", new { id = item.id_admi })" class="btn btn-danger btn-custom">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

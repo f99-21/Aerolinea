@@ -1,0 +1,12 @@
+@model VueloInfo
+<h2>Editar VueloInfo</h2>
+<form method="post">
+    <input type="hidden" name="IdInfo" value="@Model.IdInfo" />
+    <label>NumeroVuelo:</label>
+    <input name="NumeroVuelo" value="@Model.NumeroVuelo" required />
+    <label>EspaciosOcupados:</label>
+    <input name="EspaciosOcupados" value="@Model.EspaciosOcupados" required />
+    <label>EspaciosVacios:</label>
+    <input name="EspaciosVacios" value="@Model.EspaciosVacios" required />
+    <button type="submit">Guardar</button>
+</form>

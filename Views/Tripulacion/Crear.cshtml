@@ -1,0 +1,9 @@
+@model Tripulacion
+<h2>Crear Tripulacion</h2>
+<form method="post">
+    <label>Nombre:</label>
+    <input name="Nombre" value="@Model.Nombre" required />
+    <label>Rol:</label>
+    <input name="Rol" value="@Model.Rol" required />
+    <button type="submit">Guardar</button>
+</form>
