@@ -125,14 +125,38 @@ public class UsuarioController : Controller
         var pasajeroEmail = HttpContext.Session.GetString("UserEmail") ?? "Invitado";
 
         string html = $@"
-    <h1 style='color: navy;'>Boleto de Vuelo</h1>
-    <p><strong>Número de vuelo:</strong> {vuelo.Numero_vuelo}</p>
-    <p><strong>Origen:</strong> {vuelo.Origen}</p>
-    <p><strong>Destino:</strong> {vuelo.Destino}</p>
-    <p><strong>Horario:</strong> {vuelo.Horario.ToString("g")}</p>
-    <p><strong>Precio:</strong> ${vuelo.Precio}</p>
-    <p><strong>Pasajero:</strong> {pasajeroEmail}</p>
-    ";
+<div style='max-width: 600px; margin: auto; font-family: Arial, sans-serif; border: 2px solid #005288; border-radius: 10px; padding: 20px; background: linear-gradient(to right, #f0f8ff, #e6f0fa); box-shadow: 0 4px 8px rgba(0,0,0,0.1);'>
+    <h1 style='color: #005288; text-align: center; border-bottom: 1px solid #ccc; padding-bottom: 10px;'>✈️ Boleto de Vuelo</h1>
+    <table style='width: 100%; font-size: 16px; margin-top: 20px;'>
+        <tr>
+            <td><strong>Número de vuelo:</strong></td>
+            <td>{vuelo.Numero_vuelo}</td>
+        </tr>
+        <tr>
+            <td><strong>Origen:</strong></td>
+            <td>{vuelo.Origen}</td>
+        </tr>
+        <tr>
+            <td><strong>Destino:</strong></td>
+            <td>{vuelo.Destino}</td>
+        </tr>
+        <tr>
+            <td><strong>Horario:</strong></td>
+            <td>{vuelo.Horario.ToString("f")}</td>
+        </tr>
+        <tr>
+            <td><strong>Precio:</strong></td>
+            <td><span style='color: green; font-weight: bold;'>${vuelo.Precio}</span></td>
+        </tr>
+        <tr>
+            <td><strong>Pasajero:</strong></td>
+            <td>{pasajeroEmail}</td>
+        </tr>
+    </table>
+    <p style='text-align: center; margin-top: 30px; color: #666;'>¡Gracias por elegirnos!<br>Le deseamos un excelente viaje.</p>
+</div>
+";
+
 
         var converter = new SelectPdf.HtmlToPdf();
         SelectPdf.PdfDocument doc = converter.ConvertHtmlString(html);
